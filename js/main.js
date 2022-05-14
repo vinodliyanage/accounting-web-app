@@ -1,6 +1,7 @@
 const createBlank = document.getElementById("create-blank");
 const createTemplate = document.getElementById("create-template");
 
+
 const template = [
   "Purchase price",
   "Less-Trade discounts",
@@ -14,6 +15,7 @@ const template = [
 ];
 
 let previousEditedElement = null;
+let newRowElement = null;
 
 Field.removeAll();
 Field.create();
@@ -49,8 +51,6 @@ tableBody.addEventListener("input", (e) => {
   );
 
   if (!(parentRowElement instanceof HTMLTableRowElement)) return;
-
-  let newRowElement = null;
 
   if (value.length) {
     if (!parentRowElement.nextElementSibling) {
