@@ -1,6 +1,6 @@
 const createBlank = document.getElementById("create-blank");
 const createTemplate = document.getElementById("create-template");
-
+const tableFooter = document.querySelector(".cost-table tfoot")
 
 const template = [
   "Purchase price",
@@ -40,6 +40,10 @@ tableBody.addEventListener("click", (e) => {
   }
   previousEditedElement = element;
 });
+
+tableFooter.addEventListener('click', () => {
+  Field.format(previousEditedElement);
+})
 
 tableBody.addEventListener("input", (e) => {
   const value = e.target.value?.trim();
