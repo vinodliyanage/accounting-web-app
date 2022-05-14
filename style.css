@@ -90,7 +90,7 @@ body {
 
 .tip img {
     width: 100%;
-    max-height: 150px;
+    max-height: 120px;
     object-fit: contain; 
 }
 
