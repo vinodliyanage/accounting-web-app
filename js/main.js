@@ -61,8 +61,12 @@ tableBody.addEventListener("input", (e) => {
       newRowElement = Field.create(parentRowElement);
     }
   } else {
-    Field.remove(newRowElement);
-    newRowElement = null;
+    if (parentRowElement.nextElementSibling) {
+      Field.remove(parentRowElement);
+    } else {
+      Field.remove(newRowElement);
+      newRowElement = null;
+    }
   }
 
   if (e.target.name === "amount") {
