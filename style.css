@@ -20,6 +20,7 @@ body {
 
 
 .purchase-cost-container {
+    position: relative;
     min-width: 600px;
     background: #fcfcfc;
     border-radius:8px;
@@ -31,6 +32,68 @@ body {
 .purchase-cost-container:hover {
     box-shadow:  0 0 20px rgba(0, 0, 0, 0.2);
 }
+
+/* paperclip */
+
+.paperclip {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: -10px;
+    right: 0px;
+    cursor: pointer;
+}
+
+
+.paperclip img {
+    width: 50px;
+    height: 50px;  
+}
+
+.paperclip:hover {
+    animation: paperclip 0.1s;
+}
+
+@keyframes paperclip {
+    0% {
+        transform: rotate(3deg);
+    }
+    100% {
+        transform: rotate(-3deg);
+    }
+}
+
+/* tips */
+
+.tip {
+    position: absolute;
+    padding: 10px;
+    border-radius: 8px;
+    width: 300px;
+    z-index: -99;
+    right: 0px;
+    margin: 10px;
+    box-shadow:  0 0 20px rgba(0, 0, 0, 0.15);
+    transition: right 0.5s;
+}
+
+.tip h2 {
+    text-align: left;
+    font-size: 1.8rem;
+}
+
+.tip p {
+    font-size: 1.4rem;
+}
+
+.tip img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: contain; 
+}
+
 
 /* control-panel */
 
