@@ -154,7 +154,7 @@ const Field = (() => {
   }
 
   function setAmount(id, value) {
-    if(!id || Number.isNaN(value)) return;
+    if(!(id && value && value.length )) return;
     amounts[id] = parseFloat(value);
     calculateTotal()
   }
