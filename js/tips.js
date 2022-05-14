@@ -11,6 +11,7 @@ let currentTip = 0;
 btnTip.addEventListener("mouseenter", () => {
   currentTip = 1 - currentTip; //? only temporarily, because currently has only two tips
   tipElement = tips[currentTip];
+  
   tipElement.style.right = -30 + "px";
   tipElement.style.background =
     colorPalette[Math.round(Math.random() * 10) % colorPalette.length];
@@ -22,9 +23,10 @@ btnTip.addEventListener("mouseleave", () => {
 });
 
 btnTip.addEventListener("click", () => {
-  if (isClicked) return;
   const tipElmCopy = tipElement;
-  tipElement.style.right = -330 + "px";
+  if (isClicked) return;
+
+  tipElmCopy.style.right = -330 + "px";
   isClicked = true;
   setTimeout(() => {
     isClicked = false;
