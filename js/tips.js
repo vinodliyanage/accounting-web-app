@@ -22,8 +22,8 @@ btnTip.addEventListener("mouseleave", () => {
 });
 
 btnTip.addEventListener("click", () => {
-  const tipElmCopy = tipElement;
   if (isClicked) return;
+  const tipElmCopy = tipElement;
   tipElement.style.right = -330 + "px";
   isClicked = true;
   setTimeout(() => {
