@@ -22,11 +22,12 @@ btnTip.addEventListener("mouseleave", () => {
 });
 
 btnTip.addEventListener("click", () => {
+  const tipElmCopy = tipElement;
   if (isClicked) return;
   tipElement.style.right = -330 + "px";
   isClicked = true;
   setTimeout(() => {
     isClicked = false;
-    tipElement.style.right = 0 + "px";
-  }, 3000);
+    tipElmCopy.style.right = 0 + "px";
+  }, 4000);
 });
