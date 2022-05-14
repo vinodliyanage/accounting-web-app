@@ -9,27 +9,31 @@ let tipElement = null;
 let currentTip = 0;
 
 btnTip.addEventListener("mouseenter", () => {
-  currentTip = 1 - currentTip; //? only temporarily, because currently has only two tips
   tipElement = tips[currentTip];
-  
-  tipElement.style.right = -30 + "px";
+
   tipElement.style.background =
     colorPalette[Math.round(Math.random() * 10) % colorPalette.length];
+  tipElement.style.right = -30 + "px";
 });
 
 btnTip.addEventListener("mouseleave", () => {
-  if (isClicked) return;
+  if (!tipElement) return;
   tipElement.style.right = 0 + "px";
 });
 
 btnTip.addEventListener("click", () => {
-  const tipElmCopy = tipElement;
   if (isClicked) return;
+  const tipElmCpy = tipElement;
+  tipElmCpy.style.right = -330 + "px";
 
-  tipElmCopy.style.right = -330 + "px";
+  tipElement = null;
   isClicked = true;
+  isTimeOutOver = false;
+
+  currentTip = +!currentTip; //? only temporarily, because currently has only two tips
+
   setTimeout(() => {
     isClicked = false;
-    tipElmCopy.style.right = 0 + "px";
-  }, 4000);
+    tipElmCpy.style.right = 0 + "px";
+  }, 6000);
 });
