@@ -1,5 +1,3 @@
-const log = console.log;
-
 // Field singleton
 const Field = (() => {
   let amounts = {};
