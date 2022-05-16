@@ -30,13 +30,6 @@ createTemplate.addEventListener("click", () => {
   Field.createFromTemplate(template);
 });
 
-tableBody.addEventListener("keyup", (e) => {
-  if (e.key === "Enter") {
-      // TODO: make mouse cursor to jump to the next input box.
-  }
-});
-
-
 tableBody.addEventListener("click", (e) => {
   const parentRowId = e.target.dataset.parentRowId;
   const element = document.querySelector(`[data-id="${parentRowId}"]`);
