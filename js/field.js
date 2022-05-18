@@ -152,9 +152,10 @@ const Field = (() => {
   }
 
   function setAmount(id, value) {
-    if(!(id && value && value.length )) return;
+    if (!id && value === null) return;
+    if (!value.length) value = 0;
     amounts[id] = parseFloat(value);
-    calculateTotal()
+    calculateTotal();
   }
 
   return {

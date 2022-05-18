@@ -1,6 +1,6 @@
 const createBlank = document.getElementById("create-blank");
 const createTemplate = document.getElementById("create-template");
-const tableFooter = document.querySelector(".cost-table tfoot")
+const tableFooter = document.querySelector(".cost-table tfoot");
 
 const template = [
   "Purchase price",
@@ -41,12 +41,13 @@ tableBody.addEventListener("click", (e) => {
   previousEditedElement = element;
 });
 
-tableFooter.addEventListener('click', () => {
+tableFooter.addEventListener("click", () => {
   Field.format(previousEditedElement);
-})
+});
 
 tableBody.addEventListener("input", (e) => {
   const value = e.target.value?.trim();
+ 
   if (value === null) return;
 
   const parentRowElementId = e.target.dataset.parentRowId;
@@ -54,13 +55,16 @@ tableBody.addEventListener("input", (e) => {
     `[data-id="${parentRowElementId}"]`
   );
 
+  const inputLabel = parentRowElement.querySelector(`input[name="label"]`);
+  const inputAmount = parentRowElement.querySelector(`input[name="amount"]`);
+
   if (!(parentRowElement instanceof HTMLTableRowElement)) return;
 
   if (value.length) {
     if (!parentRowElement.nextElementSibling) {
       newRowElement = Field.create(parentRowElement);
     }
-  } else {
+  } else if (!(inputLabel.value.length || inputAmount.value.length)) {
     if (parentRowElement.nextElementSibling) {
       Field.remove(parentRowElement);
     } else {
@@ -69,7 +73,7 @@ tableBody.addEventListener("input", (e) => {
     }
   }
 
-  if (e.target.name === "amount") {
+  if (e.target.name === "amount" && value !== "-") {
     Field.setAmount(parentRowElementId, value);
   }
 });
